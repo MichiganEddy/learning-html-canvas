@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title> Learning Canvas </title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+
+    <script type="text/javascript">
+        let getHeight = function() {
+            var height = Math.floor($('window').height() * 0.9);
+            console.log(height);
+            return height;
+        }
+
+        let getWidth = function() {
+            var width = Math.floor($('window').width() * 0.6);
+            console.log(width);
+            return width;
+        }
+
+        let draw = function() {
+            var canvas = $('#practice_pad');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+                canvas.height("getHeight()");
+                canvas.width("getWidth()");
+              	canvas.save();
+            }
+          	$('window').requestAnimationFrame(draw);
+        }
+    </script>
+
+    <script type="text/javascript" src="./jquery3.1.1.jss"></script>
+
+    <script type="text/javascript">
+        function resizeCanvas() {
+            var vas = $('#practice_pad');
+            var wWidth = $('window').width();
+            var wHeight = $('window').height();
+            if (vas.height() < wHeight) {
+                vas.height("wHeight");
+            }
+            if (vas.width() < wWidth) {
+                vas.width("wWidth");
+            }
+        }
+    </script>
+</head>
+
+<body onload="draw();" onresize="resizeCanvas();">
+    <canvas id="practice_pad"></canvas>
+    
+    <script type="text/javascript" src="./sketch1.js"></script>
+
+</body>
+
+
+</html>
