@@ -2,7 +2,7 @@
 const $ = require('jquery3.1.1');
 
 
-module.exports = functon() {
+module.exports = function() {
   
   return ({
 
